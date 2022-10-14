@@ -1,0 +1,55 @@
+body{
+  overflow-x: none;
+  overflow-y: none;
+}
+#intro{
+  width: 100vw;
+  height: 90vh;
+  display: grid;
+  padding: 60px 0;
+  grid: 1fr min-content min-content 1fr /1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+section {
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  --v-offset: 70px;
+  --curve-height: 100px;
+
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    background: white;
+    width: calc(100vw + 2 * var(--v-offset));
+    height: var(--curve-height);
+    position: absolute;
+    border-radius: 50%;
+    left: calc(-1 * var(--v-offset));
+    right: calc(-1 * var(--v-offset));
+  }
+
+  &:before {
+    top: calc(-0.6 * var(--curve-height));
+  }
+  &:after {
+    bottom: calc(-0.5 * var(--curve-height));
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: 300px;
+  grid-auto-flow: column;
+  grid-gap: 10px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+  img {
+    scroll-snap-align: center;
+  }
+}
